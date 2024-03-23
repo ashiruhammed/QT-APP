@@ -13,6 +13,18 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        primary: {
+          DEFAULT: "#0D1321",
+          lemon: "#C5D86D",
+        },
+      },
+      fontFamily: {
+        sans: ["var(--font-nunito)"],
+      },
+      content: {
+        "sign-icon": "url('/assets/sign-in.svg')",
+      },
     },
   },
   plugins: [],
