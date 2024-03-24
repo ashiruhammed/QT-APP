@@ -5,6 +5,8 @@ import { useMutation } from "@tanstack/react-query";
 import { setCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
+import { AxiosError } from "axios";
+import { BaseError } from "@/types/generals";
 
 const nunito = Nunito({ subsets: ["latin"], variable: "--font-nunito" });
 
@@ -24,8 +26,12 @@ function Signup() {
 
   const { mutate, data, isPending } = useMutation({
     mutationFn: getToken,
-    onError: (error) => {
-      toast.error("Please check your internet connection");
+    onError: (error: AxiosError<BaseError>) => {
+      if (error.response?.status === 400) {
+        toast.error("Please provide a valid email address");
+      } else {
+        toast.error("An error occurred, please try again");
+      }
     },
     onSuccess(data) {
       setCookie("token", data.data.token);
