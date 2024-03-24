@@ -24,7 +24,7 @@ function Signup() {
     []
   );
 
-  const { mutate, data, isPending } = useMutation({
+  const { mutate: signUp, isPending } = useMutation({
     mutationFn: getToken,
     onError: (error: AxiosError<BaseError>) => {
       if (error.response?.status === 400) {
@@ -42,9 +42,9 @@ function Signup() {
   const handleSubmit = React.useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      mutate(formValues);
+      signUp(formValues);
     },
-    [formValues, mutate]
+    [formValues, signUp]
   );
 
   return (

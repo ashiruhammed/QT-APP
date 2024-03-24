@@ -121,7 +121,7 @@ export default function EditQuestion({
                         id="editedQuestion"
                         name="editedQuestion"
                         onChange={(e) => {
-                          setEditedQuestion((q) => e.target.value);
+                          setEditedQuestion(e.target.value);
                         }}
                         defaultValue={question}
                         className="w-full outline-none p-4 border rounded-md"

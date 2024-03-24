@@ -12,7 +12,7 @@ function PreviewQuestion({
   options: string[];
 }) {
   return (
-    <div className={`p-4 ${nunito.variable} font-sans`}>
+    <div className={`p-4 ${nunito.variable} font-sans max-h-[500px]`}>
       <div className="border rounded shadow-md h-full">
         <p className="px-3 pt-4 font-semibold">Question:</p>
         <h2
