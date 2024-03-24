@@ -57,7 +57,7 @@ export default function Home() {
               options={question.data.options}
             />
           ))}
-        {questions.length === 0 && isLoading && (
+        {questions.length === 0 && !isLoading && (
           <div className="fixed top-1/2 left-1/2">
             <p>Please add a New Question</p>
           </div>
