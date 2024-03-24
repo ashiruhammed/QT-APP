@@ -141,7 +141,6 @@ export default function EditQuestion({
                     {editedOption.length < 5 && (
                       <AddNewOption
                         getOption={(opt) => {
-                          console.log(opt);
                           setEditedOptions([...editedOption, opt]);
                         }}
                       />

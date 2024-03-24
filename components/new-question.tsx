@@ -126,6 +126,7 @@ export default function NewQuestion() {
                     </ul>
                     <AddNewOption
                       getOption={(opt) => {
+                        console.log(opt);
                         setOptions((option) => [...option, opt]);
                       }}
                     />

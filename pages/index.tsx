@@ -58,8 +58,8 @@ export default function Home() {
             />
           ))}
         {questions.length === 0 && !isLoading && (
-          <div className="fixed top-1/2 left-1/2">
-            <p>Please add a New Question</p>
+          <div className="fixed top-1/2 mx-auto w-full">
+            <p className="mx-auto max-w-fit">Please add a New Question</p>
           </div>
         )}
       </div>

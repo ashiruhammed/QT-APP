@@ -37,7 +37,7 @@ function TutorQuestion({
               tabIndex={0}
               key={i}
               className="font-semibold">
-              <span>{String.fromCharCode(++i + 96)}.</span> {opt}
+              <span>{String.fromCharCode(i++ + 96)}.</span> {opt}
             </li>
           ))}
         </ul>

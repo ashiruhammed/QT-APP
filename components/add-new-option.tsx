@@ -13,6 +13,15 @@ function AddNewOption({ getOption }: { getOption: (opt: string) => void }) {
             className="w-full  rounded-md outline-none px-2 py-3 border"
             onChange={(e) => setOption(e.target.value)}
             autoFocus={true}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                if (option) {
+                  getOption(option);
+                  setOption("");
+                  setOpenInput(false);
+                }
+              }
+            }}
           />
           <button
             onClick={(e) => {
@@ -21,8 +30,7 @@ function AddNewOption({ getOption }: { getOption: (opt: string) => void }) {
                 setOption("");
                 setOpenInput(false);
               }
-            }}
-            type="submit">
+            }}>
             Add
           </button>
         </div>
