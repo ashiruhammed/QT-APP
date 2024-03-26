@@ -62,7 +62,8 @@ export default function NewQuestion() {
         <button
           onClick={() => setIsOpen(true)}
           type="button"
-          className="md:w-full ml-auto py-1 gap-2 md:py-3 rounded-3xl font-sans px-4  md:text-base text-sm border border-gray-100">
+          className="md:w-full ml-auto py-1 gap-2 md:py-3 rounded-3xl font-sans px-4  md:text-base text-sm border border-gray-100"
+          data-testid="showPopup">
           Add New Question
         </button>
       </div>
@@ -83,7 +84,9 @@ export default function NewQuestion() {
             <div className="fixed inset-0 bg-black/25" />
           </Transition.Child>
 
-          <div className="fixed inset-0 overflow-y-auto">
+          <div
+            data-testid="addQuestionModal"
+            className="fixed inset-0 overflow-y-auto">
             <div className="flex min-h-full items-center -mt-8 justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -109,12 +112,13 @@ export default function NewQuestion() {
                         placeholder="Type your question here"
                         id="question"
                         name="question"
+                        data-testid="inputQuestion"
                         onChange={(e) => setQuestion(e.target.value)}
                         className="w-full outline-none p-4 border rounded-md"
                         rows={2}></textarea>
                     </div>
 
-                    <ul className="space-y-4">
+                    <ul data-testid="options" className="space-y-4">
                       {options.map((opt, i) => (
                         <Option
                           key={i}
@@ -133,6 +137,7 @@ export default function NewQuestion() {
                     <div className="mt-4 space-x-4 flex justify-end font-semibold">
                       <button
                         type="submit"
+                        data-testid="addNewQuestion"
                         disabled={
                           !options.length ||
                           options.length < 3 ||

@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import toast, { Toaster } from "react-hot-toast";
 import { AxiosError } from "axios";
 import { BaseError } from "@/types/generals";
+import { isValidEmail } from "@/utils/useData";
 
 const nunito = Nunito({ subsets: ["latin"], variable: "--font-nunito" });
 
@@ -35,6 +36,7 @@ function Signup() {
     },
     onSuccess(data) {
       setCookie("token", data.data.token);
+      // console.log(data);
       router.push("/");
     },
   });
@@ -71,9 +73,10 @@ function Signup() {
           <button
             type="submit"
             tabIndex={0}
+            data-testid="submit"
             aria-live="off"
-            disabled={formValues.email ? false : true}
-            className="px-8 py-3 border border-white rounded-md font-semibold bg-white ml-auto peer-invalid:cursor-not">
+            disabled={isValidEmail(formValues.email) ? false : true}
+            className="px-8 py-3 border border-white rounded-md font-semibold bg-white ml-auto disabled:cursor-not-allowed disabled:opacity-80">
             {isPending ? "Signing up..." : "Sign up"}
           </button>
         </form>
